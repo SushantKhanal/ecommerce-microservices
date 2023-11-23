@@ -3,5 +3,11 @@ spring:
     mongodb:
       database: Task
       uri: mongodb+srv://admin:admin@cluster0.90baew0.mongodb.net/?retryWrites=true&w=majority
+  application:
+    name: product-service
 
 
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
