@@ -15,7 +15,7 @@ public class InventoryController {
     private final InventoryService inventoryServiceImpl;
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<InventoryResponse> isInStock(@RequestParam List<String> skuCode){
+    public List<InventoryResponse> isInStock(@RequestParam List<String> skuCode) throws InterruptedException {
         return inventoryServiceImpl.isInStock(skuCode);
     }
 }
