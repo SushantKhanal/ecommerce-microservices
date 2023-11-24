@@ -5,6 +5,11 @@ spring:
       uri: mongodb+srv://admin:admin@cluster0.90baew0.mongodb.net/?retryWrites=true&w=majority
   application:
     name: product-service
+#  zipkin:
+#    base-url: http://localhost:9411
+#  sleuth:
+#    sampler:
+#      probability: 1.0
 
 server:
   port: 0
@@ -13,3 +18,8 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
+
+management:
+  tracing:
+    sampling:
+      probability: 1

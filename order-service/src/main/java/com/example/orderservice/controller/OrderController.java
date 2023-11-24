@@ -20,12 +20,15 @@ public class OrderController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    @CircuitBreaker(name = "inventory", fallbackMethod = "fallbackMethod")
-    @TimeLimiter(name = "inventory")
-    @Retry(name = "inventory")
-    public CompletableFuture<String> placeOrder(@RequestBody OrderRequest orderRequest) {
-        return CompletableFuture.supplyAsync(() ->
-                orderServiceImpl.placeOrder(orderRequest));
+//    @CircuitBreaker(name = "inventory", fallbackMethod = "fallbackMethod")
+//    @TimeLimiter(name = "inventory")
+//    @Retry(name = "inventory")
+//    public CompletableFuture<String> placeOrder(@RequestBody OrderRequest orderRequest) {
+//        return CompletableFuture.supplyAsync(() ->
+//                orderServiceImpl.placeOrder(orderRequest));
+//    }
+    public String placeOrder(@RequestBody OrderRequest orderRequest) {
+        return orderServiceImpl.placeOrder(orderRequest);
     }
 
     public CompletableFuture<String> fallbackMethod(OrderRequest orderRequest, RuntimeException runtimeException) {
